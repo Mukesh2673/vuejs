@@ -1,4 +1,5 @@
 <template>
+<div>
  <form @submit.prevent="onUserSubmit">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Enter name" v-model="name">
@@ -8,11 +9,17 @@
   </div><br>
   <button type="submit" class="btn btn-block btn-primary">Add</button>
 </form>
+ <users />
+ </div>
 </template>
 <script>
 import {mapActions} from "vuex";
+import users from '../components/users.vue'
 export default  {
     name:'AddUser',
+     components: {
+        users
+    },
     data(){
         return {
             name:'',

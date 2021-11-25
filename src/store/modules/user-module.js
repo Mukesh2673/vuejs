@@ -1,10 +1,12 @@
 import axios from 'axios'
 const state={
-    users:[]
+    users:[],
+    count:0
 
 };
 const getters={
-    usersList:state=>state.users
+    usersList:state=>state.users,
+    counterList:state=>state.count
 };
 const actions={
     async fetchUsers(context){
@@ -23,6 +25,10 @@ const actions={
         console.log(id);
         commit("removeUser",id)
      
+    },
+    addToCart({commit}){
+        console.log('hi');
+    commit("addcart")
     }
 };
 const mutations={
@@ -36,6 +42,11 @@ const mutations={
        state.users.filter(user=>user.id !==id);
         state.users.splice(user=>user.id,1);
         
+    },
+    addcart:(state)=>{
+      
+       state.count=state.count+1;
+       
     }
 };
 export default{

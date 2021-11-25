@@ -1,20 +1,15 @@
 <template>
 <div>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <AddUser/>
-  <user />
+
+
+    <router-view></router-view>
 </div>
 </template>
 
 <script>
-import AddUser from './components/AddUser.vue'
-import user from './components/user.vue'
 export default {
   name: 'App',
-  components: {
-    AddUser,
-    user
-  }
+
 }
 </script>
 
