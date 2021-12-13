@@ -45,8 +45,8 @@ data(){
     marksbody:'none',
     questionsbody:true,
     width:100,
-    progressbardisplay:'none'
-
+    progressbardisplay:'none',
+    counterflag:0
   }
 },
 methods:{
@@ -69,6 +69,7 @@ else{
 },
 test(e){
 //var i=0;
+this.counterflag=1;
 let t=(e.target.innerText);
 let c=this.correctAnswers[0][0];
 
@@ -89,6 +90,14 @@ callFunction: function () {
             var v = this;
             for(let i=10;i>=0;i--){
             setTimeout(function (){
+                   if(v.counterflag==1)
+                   {
+                     console.log(v.counterflag);
+                     v.counterflag=0;
+                     return i=10;
+
+                   }
+                   
                     v.width=100-i*10+'%'
                     if(v.width==0+'%')
                        { console.log('hi');
